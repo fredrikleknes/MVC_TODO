@@ -1,0 +1,50 @@
+﻿@model TODOWEB.Models.Todolist
+
+@{
+    ViewData["Title"] = "Assign task";
+}
+
+<h2>Assign this task to a user</h2>
+
+<div>
+    <h4>Todolist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.personId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.personId)
+        </dd>
+    </dl>
+    <select name="number">
+        <option value="">Select a number</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</div>
+<div>
+    <a asp-area="" asp-controller="Overview" asp-action="CreateList" asp-route-id="@Model.personId, @Model.Id"> Add this list to the specified personId </a>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id">Assign to user</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
